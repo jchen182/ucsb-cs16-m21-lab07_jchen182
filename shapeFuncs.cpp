@@ -104,6 +104,10 @@ bool boxesApproxEqual(Box b1, Box b2, double tolerance) {
 
 void initBox(struct Box *b, double ulx, double uly, double w, double h)
 {
+  (b->ul.x) = ulx;
+  (b->ul.y) = uly;
+  (b->width) = w;
+  (b->height) = h;
   return; // @@@ For a void function a "naked return" is a "do nothing" stub
 }
 

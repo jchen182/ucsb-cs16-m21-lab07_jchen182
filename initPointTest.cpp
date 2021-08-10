@@ -14,7 +14,6 @@ int main() {
   assertTrue(pointsApproxEqual(p1,p1Expected),"pointsApproxEqual(p1,p1Expected)");
 
   initPoint(&p2,-1.2,-3.4); p2Expected.x = -1.2;   p2Expected.y = -3.4; 
-		   
   assertTrue(pointsApproxEqual(p2,p2Expected), "pointsApproxEqual(p2,p2Expected)");
 
   initPoint(&p3,0.0,0.0);   p3Expected.x = 0.0;    p3Expected.y = 0.0; 

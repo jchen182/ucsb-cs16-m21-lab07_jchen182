@@ -32,7 +32,13 @@ double distanceBetween(Point p, Point q) {
 
 
 void initPoint(struct Point *p, double xVal, double yVal) {
-  //return; //@@@ for a void function, the stub is just a bare return that does nothing
+  // Precondition: structure p has two double values, a x and y value, 
+  // and xVal and yVal have double values. 
+  // Postcondition: structure p has x value equal to xVal and y value
+  // equal to yVal.
+  (p->x) = xVal;
+  (p->y) = yVal;
+  return;
 }
 
 
@@ -64,22 +70,26 @@ bool pointsApproxEqual(Point p1,
 }
 
 bool boxesApproxEqual(Box b1, Box b2, double tolerance) {
-
+  bool ulApproxEqual, widthApproxEqual, heightApproxEqual;
   // Two boxes are approximately equal if their upper left corners are approximately 
   // equal, and if their corresponding widths and height are approx equal.
 
-  // Remember: to test whether double values a and b are approximately equal, you need:
-  //   fabs(a - b) < tol
-  // Don't use a==b since this doesn't take tolerance into account.
-  // You'll need to use this technique for width and height
- 
+  if(approxEqual(b1.ul.x, b2.ul.x, tolerance) && approxEqual(b1.ul.y, b2.ul.y, tolerance)){
+    ulApproxEqual = true;
+  }
+  else ulApproxEqual = false;
+  widthApproxEqual = approxEqual(b1.width, b2.width, tolerance);
+  heightApproxEqual = approxEqual(b1.height, b2.height, tolerance);
+  
   // You may find it helpful to abstract out an "approxEqual" function that takes
   // two parameters of type "double".  Put the prototype in your utility.h 
   // and the definition in your utility.cpp file.
 
-  // TODO: FILL THIS IN WITH APPROPRIATE CODE
-
-  return false; // STUB!  TODO: Delete this line and comment and replace with appropriate code
+  if(ulApproxEqual && widthApproxEqual && heightApproxEqual){
+    return true;
+  }
+  
+  return false; 
 }
 
 
